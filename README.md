@@ -5,8 +5,9 @@
 
 ####### Archivos de configuracion #######
 - Para montar los ambientes
-  FRONTEND
+
+FRONTEND
   - environment.ts
-  BACKEND
+BACKEND
   - Modificar ConnectionStrings
   
