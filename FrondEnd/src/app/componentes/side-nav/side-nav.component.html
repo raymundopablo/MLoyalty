@@ -1,0 +1,28 @@
+
+<div class="container">
+
+<mat-nav-list>
+    <div class="logo py-4">
+        <img src="assets/imagenes/logo.png">
+    </div>
+
+    <!-- Rol Administrador-->
+    <div *ngIf="rol === 'Administrador'">
+        <button class="estilos" (click)="asignarNombre('Tiendas')" mat-menu-item routerLink="/principal" routerLink="/principal"> <mat-icon>home</mat-icon><span>Tiendas</span></button>  
+        <br>
+        <button class="estilos" (click)="asignarNombre('Clientes')" mat-menu-item routerLink="/Clientes" > <mat-icon>supervisor_account</mat-icon><span>Clientes</span></button> 
+        <br>
+     
+    </div>
+
+    <!-- Rol cliente-->
+    <div *ngIf="rol === 'Cliente'">   
+        <button class="estilos" (click)="asignarNombre('Compra')" mat-menu-item routerLink="/Compra"> <mat-icon>shopping_cart</mat-icon><span>Compra</span></button>  
+        <br> 
+        <button class="estilos" (click)="asignarNombre('Mis Productos')" mat-menu-item routerLink="/MisProductos" routerLink="/MisProductos"> <mat-icon>home</mat-icon><span>Mis Productos</span></button>  
+    </div>
+ </mat-nav-list>
+
+</div>
+  
+

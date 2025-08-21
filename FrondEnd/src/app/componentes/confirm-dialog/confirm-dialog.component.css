@@ -1,0 +1,41 @@
+.boton-icono-cancelar {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    background-color: #a74128;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .boton-icono-cancelar:hover {
+    color: #a74128;
+    background-color: #ffffff;
+  }
+  .boton-icono-cancelar .material-icons {
+    font-size: 50px;
+    vertical-align: middle;
+  }
+
+  .boton-icono-aceptar {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    background-color: #28a745;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .boton-icono-aceptar:hover {
+    color: #28a745;
+    background-color: #ffffff;
+  }
+  .boton-icono-aceptar .material-icons {
+    font-size: 50px;
+    vertical-align: middle;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+

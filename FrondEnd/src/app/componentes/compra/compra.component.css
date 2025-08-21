@@ -1,0 +1,4 @@
+.imagen-limitada {
+      max-width: 20%; /* La imagen nunca será más ancha que su contenedor */
+      height: auto;    /* Mantiene la proporción de la imagen */
+    }

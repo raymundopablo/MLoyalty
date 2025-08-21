@@ -1,0 +1,55 @@
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer {
+width: 260px;
+background: #2F3646;
+}
+
+mat-drawer-container{
+  height: 100%;
+
+}
+
+mat-sidenav-container{
+    height: 100%;
+    
+}
+
+mat-sidenav, mat-sidenav-content {
+padding: 16px;
+}
+
+
+.top-menu {
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+    color: white;
+  }
+    .vertical-menu {
+      background-color: #b8c6db;
+      background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+      /* background-color: #63a4ff;
+      background-image: linear-gradient(315deg,  #83eaf1 0%, #63a4ff 74%); */
+    }
+  
+    .fill-remaining-space {
+      flex: 1 1 auto;
+    }
+  
+    .vap-icon {
+      padding: 0 10px;
+    }
+  
+    .mat-elevation-z5 {
+      position: relative;
+      z-index: 2;
+      }
+  
+  .mat-sidenav a:hover {
+      color: #E91E63;
+  }

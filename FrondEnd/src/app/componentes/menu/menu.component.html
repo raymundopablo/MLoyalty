@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <mat-toolbar-row class="justify-content-between">
+        <button mat-icon-button (click)="toggleSideBar()"><mat-icon>menu</mat-icon></button>
+        {{tituloPantalla}}
+        <div class="row mr-2 ml-auto">
+            <ul>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
+                    <mat-icon class="user-image-icon ml-1">keyword_arrow_down</mat-icon>
+                    {{usuarioLogueado}} 
+                </button>
+                <mat-menu #menu="matMenu">
+                    <div *ngIf="!usuarioLogueado">
+                        <a routerLink="login" mat-button>Login</a>
+                    </div>
+                    <div *ngIf="usuarioLogueado">
+                    <button mat-menu-item>
+                        <mat-icon>exit_to_app</mat-icon>
+                        <a routerLink="login"  (click)="CerrarSesion()" mat-button>Cerrar</a>
+                    </button>
+                    <div mat-menu-item>{{rol}} </div>
+                </div>
+                </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+
+
+
+</mat-toolbar>

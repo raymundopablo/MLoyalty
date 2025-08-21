@@ -1,0 +1,23 @@
+mat-toolbar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #2F3646;
+    background: linear-gradient(90deg, #2F3646 0%, rgb(34, 63, 107) 100%, rgba(255,255,255,1) 100%);
+    }
+    
+    mat-icon{
+        color: white;
+    }
+
+    ul li {
+    
+        list-style: none;
+    }
+    
+    button{
+        border: 0;
+        outline: none;
+        background: transparent;
+        
+    }

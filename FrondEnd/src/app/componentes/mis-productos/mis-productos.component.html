@@ -1,0 +1,38 @@
+<div class="containerGeneral">
+    <BR>
+    <h3>MIS PRODUCTOS</h3>
+
+        <div class="row">
+          <div class="col-sm-6">
+     <br>
+   <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let articulo of ListaArticulos; let i=index">
+        <td>{{articulo.idArticulo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio | currency:'MXN'}}</td>
+        <td>{{articulo.stock}}</td>
+        <td> <img [src]="apiUrl + 'imagenes/' + articulo.imagen" class="imagen-limitada" /></td>
+        <td>
+             <button mat-icon-button (click)="eliminarArticulo(articulo)" ngbTooltip="Eliminar"><mat-icon>delete</mat-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+        <div class="col-sm-6">
+        </div>
+
+
+
+      </div>
+</div>

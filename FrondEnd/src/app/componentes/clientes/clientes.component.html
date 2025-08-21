@@ -1,0 +1,156 @@
+<div class="containerGeneral">
+    <BR>
+    <h3>CLIENTES</h3>
+    <div class="form-group">
+      <br>
+      <button class="btn btn-light btn-mg" type="button" (click)="regresar()"><mat-icon>arrow_back</mat-icon> Inicio </button>
+      <button class="btn btn-light btn-mg" type="button" (click)="CrearNuevo()"><mat-icon>person_add</mat-icon> Nuevo cliente </button>
+  </div>
+    <form [formGroup]="form" (ngSubmit)= "insertarCliente()">
+        <div class="row">
+            <div class="col-sm-3">
+                <div *ngIf="Cliente.idCliente != -1">
+                    <!-- Contenido que se mostrará si idCliente no es 0 ni null ni undefined ni -1 -->
+                    <h5>ID del cliente es: {{ Cliente.idCliente }}</h5> 
+                  </div>
+                  <div *ngIf="!Cliente.idCliente">
+                  </div>
+                <div class="form-group">
+                    <label for="ref">Nombre</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtNombre')?.valid" [class.red-icon]="this.form.get('txtNombre')?.invalid && this.form.get('txtNombre')?.touched"></i>
+                        </div>
+                        <input type="text" class="form-control"  formControlName="txtNombre" [(ngModel)]="Cliente.nombres" required>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label for="ref">Apellidos</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtApellidos')?.valid" [class.red-icon]="this.form.get('txtApellidos')?.invalid && this.form.get('txtApellidos')?.touched"></i>
+                        </div>
+                        <input type="text" class="form-control"  formControlName="txtApellidos" [(ngModel)]="Cliente.apellidos" required>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-3">
+
+                  <div class="form-group">
+                    <label for="ref">Dirección</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtDireccion')?.valid" [class.red-icon]="this.form.get('txtDireccion')?.invalid && this.form.get('txtDireccion')?.touched"></i>
+                        </div>
+                        <input type="text" class="form-control"  formControlName="txtDireccion" [(ngModel)]="Cliente.direccion" required>
+                    </div>
+                  </div>
+                    <div class="form-group">
+                <label for="ref">Username</label>
+                <div class="input-group">
+                    <div class="input-group-text bg-white">
+                        <i class="fas fa-check" [class.green-icon]="this.form.get('txtUsername')?.valid" [class.red-icon]="this.form.get('txtUsername')?.invalid && this.form.get('txtUsername')?.touched"></i>
+                    </div>
+                    <input type="text" class="form-control"  formControlName="txtUsername" [(ngModel)]="Cliente.userName" required >
+                </div>
+              </div>     
+              
+            </div>
+            <div class="col-sm-3">
+
+                <div class="form-group">
+                    <label for="ref">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtPassword')?.valid" [class.red-icon]="this.form.get('txtPassword')?.invalid && this.form.get('txtPassword')?.touched"></i>
+                        </div>
+                        <input type="password" class="form-control"  formControlName="txtPassword" [(ngModel)]="Cliente.password" >
+                    </div>
+                  </div>    
+
+              <button class="btn btn-warning btn-sm" type="submit"   [disabled]="form.invalid"><i class="fas fa-arrow-alt-circle-right"></i> Guardar Información</button>
+    
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+          </div>   
+</form>
+
+<div class="containerListado">
+  <DIV class="row">
+<div class="col-sm-6">
+    <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Buscar">
+    </mat-form-field> 
+  </div>
+  <div class="example-container mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort >
+
+      <ng-container matColumnDef="idCliente">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.idCliente}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombres">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombres}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="apellidos">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.apellidos}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="direccion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.direccion}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="accion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+                  <div style="padding:10px;"><a (click)="seleccionarCliente(row)" ><mat-icon ngbTooltip="Editar">edit</mat-icon></a> </div>
+                   <div style="padding:10px;"><a (click)="eliminarCliente(row)" ><mat-icon ngbTooltip="Eliminar">restore_from_trash</mat-icon></a> </div>
+                  <button class="btn btn-success btn-mg" (click)="seleccionarArticulos(row)" ngbTooltip="Articulos">Articulos</button>
+                 
+                 
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+<div class="col-sm-6">
+  <br>
+             <table class="table table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let articulo of ListaArticulos; let i=index">
+                  <td>{{articulo.idArticulo}}</td>
+                  <td>{{articulo.descripcion}}</td>
+                  <td>{{articulo.precio | currency:'MXN'}}</td>
+                </tr>
+              </tbody>
+            </table>
+</div>
+
+  </DIV>
+
+  
+
+</div>
+
+  </div>

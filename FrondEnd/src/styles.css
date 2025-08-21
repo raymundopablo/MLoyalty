@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Todos los inpunts al ser tocados y si son invalidos de acuerdo a su validacion se pintan rojos*/
+input.ng-touched.ng-invalid {
+    border-color: red;
+}
+
+/* Todos los inpunts asi son validos de acuerdo a su validacion se pintan verde*/
+input.ng-valid {
+    border-color: #28a743;
+}
+
+.green-icon {
+    color: #28a743;
+}
+
+
+.red-icon {
+    color: red;
+}
+
+.mat-icon {
+    cursor: pointer;
+  }
+
+html, body { height: 100%; }
+/*body { margin: 0; font-family: t, "Helvetica Neue", sans-serif; }*/
+body { margin: 0; font-family: 'Times New Roman', Times, serif;}
+
+/* Necesario para que los dropdownlist aparescan encima en los modal, de lo contrario se traslaparan*/
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 10000 !important;
+    }
+/* necesario para que salga el texto largo completo en los dropdownlist */
+    .mat-select-panel mat-option.mat-option {
+        height: unset;
+      }
+    
+     .mat-option-text.mat-option-text {
+        white-space: normal;
+      }
+      
+      .containerGeneral{
+        padding: 20px;
+      }
+
+    

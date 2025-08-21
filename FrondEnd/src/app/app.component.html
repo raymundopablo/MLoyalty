@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<mat-drawer-container>
+<!-- si existe usuario logueado despliega contenido-->
+<mat-drawer *ngIf="usuarioLogueado" mode="side" [opened]="sideBarOpen">
+   <app-side-nav></app-side-nav>
+</mat-drawer>
+<mat-drawer-content>
+   <app-menu (toggleSidebarForMe)="sideBarToggler()"></app-menu>
+   <router-outlet></router-outlet>
+</mat-drawer-content>
+
+</mat-drawer-container>
+
+   
+  
+

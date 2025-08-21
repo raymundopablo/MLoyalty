@@ -1,0 +1,99 @@
+h3 {
+    text-align: left;
+    text-transform: uppercase;
+    color: #7c7c7c;
+  }
+
+  mat-header-cell {
+
+    color: white;
+    font-size:medium;
+  }
+
+  mat-form-field{
+    font-size:medium;
+  }
+
+  :host {
+    display: block;
+    background-color: #F2F2F2; /* Reemplaza "tu-color" con el color deseado */
+    height: 100%; /* Asegura que el fondo ocupe toda la altura del componente */
+  }
+
+  .mensaje {
+    color: rgb(112, 112, 112); 
+  }
+
+  .grafica {
+    color: rgb(196, 196, 196); 
+  }
+
+  .boton-icono-iniciar {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    background-color: #28a745;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .boton-icono-iniciar:hover {
+    color: #28a745;
+    background-color: #ffffff;
+  }
+  .boton-icono-iniciar .material-icons {
+    font-size: 50px;
+    vertical-align: middle;
+  }
+
+
+  .boton-icono-detener {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    background-color: #a74128;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .boton-icono-detener:hover {
+    color: #a74128;
+    background-color: #ffffff;
+  }
+  .boton-icono-detener .material-icons {
+    font-size: 50px;
+    vertical-align: middle;
+  }
+
+  .containerPrincipal{
+    padding: 10px;
+  }
+
+  .boton-icono {
+    margin-right: 10px; /* Agrega un margen entre los botones */
+  }
+
+  ::ng-deep .legend-wrap .legend-labels .legend-label .legend-label-color {
+    width: 40px;  /* Ajusta la anchura del recuadro */
+    height: 40px; /* Ajusta la altura del recuadro */
+    border-radius: 4px; /* Si deseas que tenga bordes redondeados */
+    margin-right: 8px; /* Añade espacio entre el recuadro y el texto */
+}
+
+  ::ng-deep .legend-wrap .legend-labels .legend-label .legend-label-text {
+    font-size: 40px; /* Ajusta el tamaño de la fuente */
+    color: #000833;
+    display: inline-block; /* Asegura que el contenedor se ajuste al contenido */
+    padding: 10px 20px; /* Añade espacio alrededor del texto si es necesario */
+}
+
+::ng-deep .legend-wrap .legend-labels .legend-label {
+    height: auto; /* Ajusta automáticamente la altura del contenedor al contenido */
+    padding: 10px 0; /* Añade espacio extra arriba y abajo del contenedor */
+    overflow: visible; /* Asegura que todo el contenido sea visible */
+}
+
+.imagen-limitada {
+      max-width: 20%; /* La imagen nunca será más ancha que su contenedor */
+      height: auto;    /* Mantiene la proporción de la imagen */
+    }

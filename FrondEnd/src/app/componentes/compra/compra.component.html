@@ -1,0 +1,86 @@
+
+
+<div class="containerGeneral" >
+    <BR>
+    <h3>TIENDAS</h3>
+    <div class="form-group">
+  </div>
+
+
+
+<div class="row">
+    <div class="col-sm-7">
+            <div class="col-sm-5">
+         <form [formGroup]="form">
+                    <mat-form-field appearance="fill">
+                <mat-label>Tiendas</mat-label>
+                <mat-select formControlName="drpTienda" [(ngModel)]="IdTienda" (selectionChange)="recuperarArticulosPorTienda()">
+                  <mat-option *ngFor="let tienda of ListaTiendas" [value]="tienda.idTienda">{{tienda.sucursal}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </form>
+    </div>
+     <br>
+      <h4>Artículos de la tienda seleccionada</h4>        
+
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let articulo of ListaArticulos; let i=index">
+        <td>{{articulo.idArticulo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio | currency:'MXN'}}</td>
+        <td><img [src]="apiUrl + 'imagenes/' + articulo.imagen" class="imagen-limitada" /></td>
+        <td>
+          <button mat-icon-button (click)="agregarArticulo(articulo)">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-sm-1">
+
+</div>
+        <div class="col-sm-4">
+    <h6>Carrito de compra:</h6>
+    <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let articulo of CarritoDeCompra; let i=index">
+        <td>{{articulo.idArticulo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.cantidad}}</td>
+        <td>{{articulo.precio | currency:'MXN'}}</td>
+        <td>
+          <button mat-icon-button (click)="eliminarItemCarrito(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-warning" (click)="comprar()">Realizar pago </button>
+        </div>
+
+      </div>
+      
+
+

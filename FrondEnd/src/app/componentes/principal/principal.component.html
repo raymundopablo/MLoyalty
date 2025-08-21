@@ -1,0 +1,119 @@
+
+
+<div class="containerGeneral" >
+    <BR>
+    <h3>TIENDAS</h3>
+    <div class="form-group">
+      <br>
+      <button class="btn btn-light btn-mg" type="button" (click)="regresar()"><mat-icon>arrow_back</mat-icon> Inicio </button>
+      <button class="btn btn-light btn-mg" type="button" (click)="CrearNuevo()"> + Nuevo artíclo </button>
+  </div>
+    <form [formGroup]="form" (ngSubmit)= "insertarArticulo()">
+        <div class="row" >
+            <div class="col-sm-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Tiendas</mat-label>
+                <mat-select formControlName="drpTienda" [(ngModel)]="IdTienda" (selectionChange)="recuperarArticulosPorTienda()">
+                  <mat-option *ngFor="let tienda of ListaTiendas" [value]="tienda.idTienda">{{tienda.sucursal}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="form-group">
+                 <label for="ref">ID</label>
+                      <input type="text" class="form-control"  formControlName="txtIdArticulo" [(ngModel)]="Articulo.idArticulo" required readonly>
+              </div>
+                      
+            </div>
+            <div class="col-sm-3">
+                    <div class="form-group">
+                    <label for="ref">Descripción</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtDescripcion')?.valid" [class.red-icon]="this.form.get('txtDescripcion')?.invalid && this.form.get('txtDescripcion')?.touched"></i>
+                        </div>
+                        <input type="text" class="form-control"  formControlName="txtDescripcion" [(ngModel)]="Articulo.descripcion" required>
+                    </div>
+                  </div>
+                    <div class="form-group">
+                    <label for="ref">Precio</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtPrecio')?.valid" [class.red-icon]="this.form.get('txtPrecio')?.invalid && this.form.get('txtPrecio')?.touched"></i>
+                        </div>
+                        <input type="text" class="form-control"  formControlName="txtPrecio" [(ngModel)]="Articulo.precio" required>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm-3">
+                            <div class="form-group">
+                    <label for="ref">Stock</label>
+                    <div class="input-group">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-check" [class.green-icon]="this.form.get('txtStock')?.valid" [class.red-icon]="this.form.get('txtStock')?.invalid && this.form.get('txtStock')?.touched"></i>
+                        </div>
+                        <input type="text" class="form-control"  formControlName="txtStock" [(ngModel)]="Articulo.stock" required>
+                    </div>
+                  </div>
+              <div class="form-group">
+              <label for="ref">Imagen</label>
+              <div class="input-group">
+                <input (change)="uploadFile($event)" type="file"  formControlName="file">
+                
+              </div>
+            </div>
+            </div>
+            <div class="col-sm-3">
+             <img [src]="apiUrl + 'imagenes/' + Articulo.imagen" class="imagen-limitada" />
+              <br>
+                <button class="btn btn-warning btn-sm" type="submit"   [disabled]="form.invalid"><i class="fas fa-arrow-alt-circle-right"></i> Guardar Información</button>
+            </div>
+           
+              
+          </div>
+
+    </form>
+
+
+    <div class="row">
+          <div class="col-sm-6">
+     <br>
+      <h4>Artículos de la tienda seleccionada</h4>        
+
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let articulo of ListaArticulos; let i=index">
+        <td>{{articulo.idArticulo}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio | currency:'MXN'}}</td>
+        <td>{{articulo.stock}}</td>
+        <td><img [src]="apiUrl + 'imagenes/' + articulo.imagen" class="imagen-limitada" /></td>
+        <td>
+          <button mat-icon-button (click)="editarArticulo(articulo)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="eliminarArticulo(articulo.idArticulo)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+        <div class="col-sm-6">
+        </div>
+
+
+
+      </div>
+      
+
+
