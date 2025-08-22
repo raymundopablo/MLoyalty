@@ -13,4 +13,4 @@ BACKEND
   - Modificar ConnectionStrings
 
 ####### BASE DE DATOS #######
-  LoyaltyClubl.bak
+  LoyaltyClub.bak
