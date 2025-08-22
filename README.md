@@ -1,6 +1,6 @@
 ####### Usuarios prueba #######
-- Administrador: admin
-- Cliente: lucas
+- Administrador: admin /  inicial
+- Cliente: lucas / inicial
 
 
 ####### Archivos de configuracion #######
